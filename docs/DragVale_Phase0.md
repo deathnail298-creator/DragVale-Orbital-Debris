@@ -580,16 +580,359 @@ Ensure mass distribution does not induce ACS instability.
 
 Avoid sharp edges or failure modes that could generate foreign object debris.
 
-Section 4 Complete
+5. Operational Concept
 
-Next up is Section 5 – Operational Concept, which defines:
+This section defines the mission flow, operational phases, expected behaviors in orbit, and the passive logic governing DragVale’s performance. The operational concept is intentionally simple to reduce failure modes and enable small-team implementation.
 
-Mission phases
+5.1 Mission Phases Overview
 
-Deployment timeline
+DragVale operates through the following sequential phases:
 
-On-orbit behavior
+Launch & Ascent
 
-Failure modes and safeties
+Orbital Injection
 
-End-of-life logic
+Initialization & Checkout
+
+Autonomous Veil Deployment
+
+Operational Drag Phase
+
+Monitoring & Telemetry
+
+Degradation & End-of-Life
+
+Each phase is described below.
+
+5.2 Phase 1 – Launch & Ascent
+Objective
+
+Deliver the Host Drone (HD) to its planned rideshare deployment orbit.
+
+Expected Behavior
+
+HD remains stowed in its standardized deployer or launch mount.
+
+PVA is secured by passive restraints with no chance of premature release.
+
+All electrical systems remain unpowered, except for the deployment inhibit hardware required by launch provider specifications.
+
+No operations occur in this phase.
+
+5.3 Phase 2 – Orbital Injection
+Objective
+
+Enter the designated mission orbit (typically 400–700 km LEO).
+
+Expected Behavior
+
+HD separates from the deployer using a standard CubeSat rail or clamp-band mechanism.
+
+HD executes initial detumble, if required, using magnetorquers.
+
+Deployment inhibits remain active until system health is confirmed.
+
+The HD transitions into a stable attitude before any further actions occur.
+
+5.4 Phase 3 – Initialization & Checkout
+Objective
+
+Verify system functionality prior to veil deployment.
+
+Steps
+
+Boot onboard avionics.
+
+Verify power system health (solar input, battery status).
+
+Confirm thermal limits.
+
+Establish first communications link with ground.
+
+Verify ACS functionality (magnetorquer authority, attitude solution).
+
+Execute small attitude slews to confirm stability.
+
+Deployment will not proceed if critical health checks fail.
+
+5.5 Phase 4 – Autonomous Veil Deployment
+Objective
+
+Transition the Puff-Veil Assembly (PVA) from stowed configuration to operational geometry.
+
+Trigger Conditions
+
+Deployment begins when all the following are true:
+
+Deployment inhibits lifted by internal logic.
+
+HD is stable and detumbled.
+
+Solar charging nominal.
+
+Temporary ground-command inhibit (if included) cleared.
+
+Deployment Behavior
+
+Passive release mechanism activates (thermal release, tensioned filament, memory-material frame, etc.).
+
+PVA unfurls or expands to full operational shape.
+
+Momentum from deployment is absorbed through HD’s ACS.
+
+Post-Deployment Settling
+
+The system will:
+
+Stabilize attitude with magnetorquers.
+
+Confirm deployment via telemetry (geometry, ACS load signatures).
+
+Enter operational mode.
+
+No ground intervention needed.
+
+5.6 Phase 5 – Operational Drag Phase
+Objective
+
+Perform the primary mission: increase drag on passing debris while maintaining stable host orbit.
+
+Behavior Characteristics
+
+PVA trails behind the HD relative to orbital ram direction.
+
+HD maintains attitude with minimal ACS effort.
+
+The veil induces negligible additional drag on the HD.
+
+Debris passing through or interacting with the veil experiences increased deceleration.
+
+Data Products
+
+Attitude logs
+
+Orbital decay measurements
+
+Thermal behavior
+
+Structural stability indications
+
+Deployment health metrics
+
+Optional PVA strain/load sensor data (not required for Phase Zero)
+
+Autonomy Model
+
+The system does not:
+
+Track debris
+
+Maneuver to intercept
+
+Modify its orbit
+
+It acts purely as a stationary drag-enhancement node.
+
+5.7 Phase 6 – Monitoring & Telemetry
+Objective
+
+Provide periodic updates to evaluate mission health and performance.
+
+Expected Telemetry
+
+Battery voltage, charge rate, solar input
+
+ACS torque commands and performance
+
+Temperature readings
+
+Deployment state confirmation
+
+Position and orbit determination solutions
+
+General health and fault flags
+
+Data rate is intentionally low to reduce system complexity.
+
+5.8 Phase 7 – Degradation & End-of-Life (EOL)
+Objective
+
+Ensure safe termination of mission without generating debris or uncontrolled behavior.
+
+Natural Degradation Behavior
+
+Veil slowly degrades under UV exposure and thermal cycling.
+
+HD experiences slow orbital decay consistent with its ballistic coefficient.
+
+System continues transmitting until power or comms degrade beyond operational thresholds.
+
+EOL Requirements
+
+System must not shed hazardous fragments.
+
+System must comply with standard LEO orbital decay guidelines (typically <25 years).
+
+No active disposal mechanism required due to low mass and passive decay behavior.
+
+5.9 Failure Modes (High-Level)
+
+DragVale is designed to fail safely. The primary failure modes are:
+
+(1) Non-Deployment of Veil
+
+System continues as a passive CubeSat.
+
+No additional debris risk.
+
+Mission fails gracefully without hazards.
+
+(2) Partial or Asymmetric Deployment
+
+ACS maintains stability to the extent feasible.
+
+Drag remains minimal.
+
+Mission likely degraded but safe.
+
+(3) ACS Failure Post-Deployment
+
+Veil may tumble with host.
+
+System will naturally decay without hazard due to low mass and flexible structures.
+
+(4) Communications Loss
+
+Mission can continue without ground interaction.
+
+No active systems require intervention.
+
+All failure states default to passive safety.
+
+6. Safety & Risk Profile
+
+This section outlines the safety rationale, expected risk behaviors, and mitigation strategies at the architectural level. DragVale is designed to operate as a low-mass, low-energy, passive system that minimizes the creation of hazards in all mission scenarios.
+
+6.1 Safety Philosophy
+
+DragVale adheres to three core safety principles:
+
+No new debris.
+The system must not generate debris during launch, deployment, operations, or end-of-life.
+
+Passive-safe failure modes.
+Any subsystem failure must default to a benign configuration that does not endanger other spacecraft or orbital operations.
+
+Low stored energy.
+The architecture avoids high-tension structures, explosive actuators, pressurized vessels, and moving mechanical components.
+
+These principles ensure the system remains compliant with current and anticipated LEO debris-mitigation standards.
+
+6.2 Fragmentation Avoidance
+
+Fragmentation risk is addressed structurally and operationally:
+
+Ultra-low-mass veil:
+The PVA consists of thin films or mesh materials that cannot meaningfully fragment into hazardous debris.
+
+No rigid booms or articulations:
+Eliminates failure-induced shattering or hinge breakage.
+
+Damped deployment:
+Passive expansion mechanisms prevent high-velocity material release.
+
+Minimal stored strain energy:
+Memory-material elements or spring frames are designed to operate well below energetic thresholds.
+
+No pyrotechnics or pressurized systems:
+Removes the primary fragmentation vectors typical in conventional space deployments.
+
+6.3 Deployment Safety
+
+Deployment is a critical safety phase. DragVale reduces deployment risk through:
+
+Passive mechanisms:
+No motors or actuators that can jam or misfire.
+
+Slow kinematic transitions:
+Ensures no unintended forces are imparted to the host or detached components.
+
+Internal damping:
+Prevents oscillations that could destabilize the host or cause structural strain.
+
+Redundant inhibit logic:
+Deployment only initiates after detumble, power stabilization, and basic health checks.
+
+Even in a partial deployment scenario, structural and aerodynamic behavior remains benign.
+
+6.4 Operational Safety
+
+During operations, DragVale exhibits the following safety characteristics:
+
+Low ballistic coefficient of veil:
+Any detached veil segment (unlikely) would deorbit rapidly.
+
+Minimal drag impact on host:
+Prevents accidental reentry acceleration.
+
+Low-cross-section host bus:
+Reduces collision probability with tracked debris or satellites.
+
+No intercept attempts:
+The system does not maneuver to chase debris; all interactions are incidental and non-energetic.
+
+Stable trailing orientation:
+ACS maintains alignment, preventing the veil from pitching or flapping unpredictably.
+
+Operationally, DragVale functions as a passive orbital node with predictable dynamics.
+
+6.5 Environmental Compatibility
+
+The system is designed to survive without contributing new hazards in the following environments:
+
+Thermal cycling:
+PVA materials are rated for high-cycle durability, minimizing tear or fold failures.
+
+Micrometeoroid environment:
+Veil can tolerate perforations without catastrophic tearing due to low-stress tensioning.
+
+Solar UV exposure:
+Material degradation over time does not cause fragmentation; veil gradually weakens but remains coherent.
+
+Atomic oxygen (AO):
+Material selection ensures slow, predictable erosion without flaking or hazardous shedding.
+
+6.6 End-of-Life Safety
+
+DragVale’s end-of-life (EOL) behavior is inherently safe:
+
+Natural deceleration:
+Both host and veil decay passively with no intervention required.
+
+No propellant:
+Eliminates risk of tank rupture or residual thrust events.
+
+No high-energy components:
+Batteries are small and thermally stable.
+
+Compliance with standard LEO disposal guidelines:
+Designed to meet the <25-year decay rule.
+
+Graceful failure:
+Regardless of veil condition at EOL, nothing in the system becomes a fragmentation hazard.
+
+6.7 Risk Classification (Phase Zero)
+
+DragVale falls within a low-to-moderate risk class for small spacecraft, characterized by:
+
+Low collision risk due to minimal cross-sectional mass.
+
+Low fragmentation risk due to absence of energetics.
+
+Low operational risk because no maneuvers or dynamic operations occur.
+
+Moderate deployment risk (common to all deployables), mitigated through passive design.
+
+Low end-of-life risk due to natural decay compliance.
+
+This makes DragVale suitable for rideshare launch opportunities and for operation in common LEO bands without imposing significant hazard burdens on other space assets.
