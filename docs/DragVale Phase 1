@@ -1,0 +1,356 @@
+
+Phase One – System Refinement & Scaling Framework
+
+DragVale Orbital Debris Drag Amplification System
+
+Status: Phase One (Prototype Development Framework)
+Scope: Bridge between conceptual Phase Zero architecture and flight-ready prototype design.
+
+1. Phase One Purpose & Scope
+
+Phase One defines the engineering refinements, simulation tasks, subsystem validation steps, and multi-node scaling logic required to transition DragVale from a conceptual Phase Zero design into a buildable, testable prototype system.
+
+Phase One does not deliver a full flight design. It delivers:
+
+Engineering assumptions that must be validated
+
+Subsystem refinement pathways
+
+Material candidates and test matrices
+
+Deployment mechanism engineering rules
+
+Early dynamic and drag modeling tasks
+
+Test guidelines for ground, vacuum, and vibration
+
+Primary failure scenarios for mitigation planning
+
+Production architecture scaling (three-drone chain)
+
+Phase One exists to ensure that a real engineering team can begin procurement, prototyping, and simulation without ambiguity.
+
+2. Subsystem Refinement Overview
+
+Phase One requires refinement of all Phase Zero subsystems, focusing on:
+
+Puff-Veil material and geometry
+
+Deployment mechanism architecture
+
+Veil frame tensioning method
+
+ACS load envelope and torque budget
+
+Host power stability and eclipse behavior
+
+Structural anchoring and energy release limits
+
+Veil survivability under AO/UV exposure
+
+Host–veil dynamic coupling
+
+Telemetry and sensorization needs (minimal but deliberate)
+
+This section outlines the refinement direction for each subsystem.
+
+3. Veil Material Candidates & Modeling Tasks
+3.1 Material Candidates
+
+Engineering teams should evaluate the following classes:
+
+AO-resistant polyimides
+
+Metallized ultra-thin polymer films
+
+Reinforced nanofiber meshes
+
+Aerogel-supported thin membranes
+
+Hybrid mesh-film blends
+
+3.2 Required Material Characterization
+
+Teams must determine:
+
+Areal density vs. stiffness tradeoff
+
+Tear propagation characteristics
+
+UV degradation rate
+
+AO erosion rate
+
+Thermal expansion coefficients
+
+Mechanical behavior under tensioning
+
+Survivability under repeated flexing
+
+3.3 Drag Modeling Tasks
+
+Teams must model:
+
+Effective drag coefficient (Cd) of veil candidate materials
+
+Drag dependence on porosity or mesh geometry
+
+Oscillation amplitude vs. density variability
+
+Drag effects on debris of varying sizes
+
+CFD and simplified orbital drag models may both be used.
+Phase One does not require high-fidelity multi-body simulations.
+
+4. Host Drone Integration Refinements
+
+Phase One requires refinement of the host subsystem:
+
+4.1 Attitude Control Refinement
+
+Determine torque budget from veil drag.
+
+Select magnetorquer size and dipole authority accordingly.
+
+Validate ACS stability under partial veil tear scenarios.
+
+Characterize oscillation damping behavior.
+
+4.2 Structural Integration
+
+Define veil anchor strength requirements.
+
+Identify load paths during deployment and tensioning.
+
+Ensure frame release cannot impart destabilizing torques.
+
+4.3 Power System Refinement
+
+Verify solar panel output under veil shadowing conditions.
+
+Model worst-case eclipse durations.
+
+Validate thermal-induced battery behavior.
+
+4.4 Avionics & Telemetry
+
+Minimal sensor suite should include:
+
+IMU
+
+Temperature sensors
+
+Optional tension/strain sensing at 1–2 veil nodes
+
+Define downlink cadence and buffer needs.
+
+5. Deployment Mechanism – Engineering Guidelines
+
+Phase One transitions the deployment mechanism from concept → prototype-level engineering.
+
+5.1 Required Tasks
+
+Select passive release method (thermal link, frangible tie, memory-material release).
+
+Define deployment sequence timing.
+
+Determine rate of expansion to avoid host torque spikes.
+
+Simulate partial-release edge cases.
+
+Validate no stored energy levels exceed safety limits.
+
+5.2 Deployment Testing
+
+Teams must perform:
+
+Vacuum deployment tests
+
+Thermal deployment tests
+
+Vibration-survivability tests
+
+Deployment symmetry verification
+
+Post-deployment geometry measurements
+
+6. ACS Load Envelope & Dynamics
+
+Phase One requires characterization of:
+
+Drag-induced torque magnitude
+
+Oscillation modes (longitudinal, transverse, torsional)
+
+ACS duty cycle under varying density
+
+Worst-case disturbance loads
+
+Settling periods after deployment
+
+Teams should verify that ACS maintains attitude with:
+
+Fully deployed veil
+
+Partially torn veil
+
+Asymmetric tensioning
+
+Thermal-warped veil edges
+
+7. Initial Testing Plan (Ground, Vacuum, Vibe)
+
+Engineering teams are expected to execute minimum testing:
+
+7.1 Ground Testing
+
+Veil material tensile tests
+
+Tear propagation testing
+
+Tension uniformity checks
+
+Veil-to-frame integration
+
+Deployment mechanism dry-runs
+
+7.2 Thermal Vacuum Testing
+
+Deployment in vacuum
+
+Veil stiffness at extreme temperatures
+
+ACS sensor stability under thermal load
+
+AO exposure surrogate testing if available
+
+7.3 Vibration Testing
+
+Host+veil stowed configuration must survive:
+
+Random vibration
+
+Sine sweeps
+
+Pyroshock (if applicable to launch vehicle)
+
+8. Multi-Veil Scaling (Three-Drone Chain Architecture)
+
+Phase One formally introduces the production-grade design:
+
+A three-drone DragVale chain spaced along the same orbital track.
+
+8.1 Purpose
+
+Increase encounter probability
+
+Multiply drag events
+
+Reduce debris lifetime significantly faster
+
+Enable “drag corridors” in high-traffic orbital shells
+
+8.2 Conceptual Layout
+
+Drone 1 → Drone 2 → Drone 3
+Each separated by an orbital phase offset (variable, TBD).
+
+8.3 Expected Scaling Effects
+
+Sequential velocity reductions
+
+Compound perigee lowering
+
+Broader influence on debris populations
+
+Increased statistical effectiveness without increased complexity per node
+
+8.4 Required Phase One Tasks
+
+Modeling veil spacing and phasing
+
+Multi-veil interaction effects
+
+Cumulative drag envelopes
+
+Cross-node interference (expected to be minimal)
+
+Chain survivability under varied density regimes
+
+Multi-node behavior is a Phase One-only analytical requirement — no hardware needed yet.
+
+9. Phase One Performance Modeling Tasks
+
+Teams should evaluate:
+
+Drag envelope for single-veil system
+
+Drag envelope for 3-veil chain
+
+Host orbital decay sensitivity
+
+Debris population interaction rate
+
+Survivability curve of veil under AO/UV
+
+Partial-tear behavior effects on drag
+
+Phase One only requires first-order models — enough to inform Phase Two prototype development.
+
+10. Risk Reduction Tasks for Phase Two
+
+Phase One identifies and mitigates the following risk classes:
+
+Deployment asymmetry
+
+Veil tear propagation
+
+ACS oversaturation
+
+High-density atmospheric spikes
+
+Veil thermal-warp oscillations
+
+Material embrittlement
+
+Unexpected torque coupling
+
+Shadowing-induced power deficits
+
+Host–veil structural creep
+
+Phase One success criteria include:
+
+Defined ACS torque budget
+
+Defined deployment rate envelope
+
+Material characterization data
+
+Validated survivability under testing
+
+Defined multi-node chain spacing model
+
+11. Phase One Deliverables
+
+Phase One is complete when the following exist:
+
+Material selection report
+
+Deployment mechanism prototype
+
+ACS torque and load envelope
+
+Initial drag performance model
+
+Thermal-vacuum test results
+
+Vibration survivability report
+
+Multi-node chain spacing and scaling model
+
+Risk reduction closure document
+
+Go/No-Go manufacturing criteria for Phase Two
+
+At this point, teams can begin Phase Two – Prototype Construction & Flight Hardware Development.
