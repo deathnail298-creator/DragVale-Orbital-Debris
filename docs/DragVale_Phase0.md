@@ -936,3 +936,758 @@ Moderate deployment risk (common to all deployables), mitigated through passive 
 Low end-of-life risk due to natural decay compliance.
 
 This makes DragVale suitable for rideshare launch opportunities and for operation in common LEO bands without imposing significant hazard burdens on other space assets.
+
+7. System Diagrams (ACS2 Architecture)
+
+This section defines the DragVale Phase Zero system using a text-mode ACS2 diagram. ACS2 (Architecture Control Structure – Level 2) provides a clear representation of subsystem nodes, information flow, structural linkages, and operational relationships without requiring graphical schematics.
+
+The diagram below is canonical for the Phase Zero demonstrator (single host drone, single veil).
+
+7.1 ACS2 Node Definitions
+
+HOST_DRONE – Primary spacecraft bus; provides power, comms, ACS, and structural interface.
+ADCS – Attitude Determination and Control Subsystem (magnetorquers + sensors).
+PWR – Power subsystem (solar arrays + battery + regulation).
+COMMS – Communications subsystem (radio, antenna, RF front-end).
+THERM – Thermal regulation subsystem (passive coatings, insulation).
+AVIONICS – OBC, sensor interfaces, deployment logic.
+DEPLOY_UNIT – Passive veil deployment mechanism.
+PVA_FRAME – Structural tension frame or edge support for veil geometry.
+PVA_MESH – Ultra-light veil material providing drag enhancement.
+DEPLOY_INHIBIT – Logic and physical restraints preventing premature deployment.
+SENSORS – Minimal sensor suite (IMU, temperature sensors, sun sensor); optional strain sensing on PVA.
+GND_LINK – Ground communication pathway.
+
+7.2 ACS2 Edges (Relationships & Flows)
+
+Edges define the structural and functional relationships:
+
+HOST_DRONE ↔ ADCS
+Orientation commands and sensor feedback loop.
+
+HOST_DRONE ↔ PWR
+Power distribution to all subsystems.
+
+HOST_DRONE ↔ COMMS
+Telemetry uplink and command downlink path.
+
+HOST_DRONE ↔ THERM
+Passive thermal interaction; no active control.
+
+HOST_DRONE ↔ AVIONICS
+Data handling, deployment logic, health monitoring.
+
+AVIONICS → DEPLOY_INHIBIT
+Inhibit release triggered only after initialization and detumble.
+
+DEPLOY_INHIBIT → DEPLOY_UNIT
+Physical release path for passive deployment.
+
+DEPLOY_UNIT → PVA_FRAME
+Controlled extension or unfurling of structural frame.
+
+PVA_FRAME → PVA_MESH
+Provides tensioning and operational geometry to the veil material.
+
+PVA_MESH ↔ ORBIT_ENV
+Primary functional interaction — drag enhancement on debris.
+
+ADCS ↔ PVA_FRAME
+Attitude stabilization compensates for drag-induced torque.
+
+SENSORS → AVIONICS
+Telemetry data for health monitoring, deployment confirmation.
+
+AVIONICS → GND_LINK → GROUND
+Health/status transmission.
+
+7.3 ACS2 System Topology (Text Diagram)
+
+Below is the full ACS2 representation.
+This is the canonical topology for DragVale Phase Zero.
+
+NODES:
+  HOST_DRONE
+  ADCS
+  PWR
+  COMMS
+  THERM
+  AVIONICS
+  SENSORS
+  DEPLOY_INHIBIT
+  DEPLOY_UNIT
+  PVA_FRAME
+  PVA_MESH
+  ORBIT_ENV
+  GND_LINK
+  GROUND
+
+EDGES:
+  HOST_DRONE → ADCS
+  ADCS → HOST_DRONE
+
+  HOST_DRONE → PWR
+  PWR → HOST_DRONE
+
+  HOST_DRONE → COMMS
+  COMMS → HOST_DRONE
+
+  HOST_DRONE → THERM
+  THERM → HOST_DRONE   (passive influence)
+
+  HOST_DRONE → AVIONICS
+  AVIONICS → HOST_DRONE
+
+  AVIONICS → DEPLOY_INHIBIT
+  DEPLOY_INHIBIT → DEPLOY_UNIT
+
+  DEPLOY_UNIT → PVA_FRAME
+  PVA_FRAME → PVA_MESH
+
+  PVA_MESH → ORBIT_ENV
+  ORBIT_ENV → PVA_MESH
+
+  ADCS → PVA_FRAME        (attitude stabilization)
+  PVA_FRAME → ADCS        (drag torque feedback)
+
+  SENSORS → AVIONICS
+  AVIONICS → GND_LINK
+  GND_LINK → GROUND
+
+7.4 Topology Interpretation
+Structural Chain
+
+HOST_DRONE → DEPLOY_UNIT → PVA_FRAME → PVA_MESH
+
+Control Chain
+
+SENSORS → AVIONICS → ADCS → HOST_DRONE attitude response
+
+Mission Interaction Chain
+
+PVA_MESH ↔ ORBIT_ENV → debris drag effects → passive system response
+
+Communications Chain
+
+AVIONICS → GND_LINK → GROUND (telemetry only; no maneuvering commands required)
+
+7.5 Notes on ACS2 Constraints
+
+ACS2 explicitly avoids specifying geometry or physical dimension; Phase Zero restricts itself to functional relationships.
+
+No subsystem has authority to induce propulsion or maneuvering.
+
+PVA_MESH is modeled solely as an orbital interaction node with no actuation.
+
+ADCS handles all drag-induced perturbations, but Phase Zero design keeps these forces minimal.
+
+DEPLOY_UNIT is a one-way transition node; no retraction path exists.
+
+8. Materials, Lifetimes, and Survivability
+
+This section defines the material expectations, environmental tolerances, and survivability requirements for DragVale’s Phase Zero demonstrator. The system is intentionally low-mass and low-stiffness, requiring careful selection of materials that can survive the orbital environment without contributing to debris generation or structural instability.
+
+8.1 Material Selection Philosophy
+
+Material choices for DragVale prioritize:
+
+Low areal density
+Ensures minimal drag impact on the host and safe degradation behavior.
+
+Environmental resilience
+Must remain functional under temperature extremes, UV exposure, atomic oxygen, and micrometeoroids.
+
+Controlled degradation
+Materials should weaken predictably over time without fragmenting or shedding debris.
+
+Manufacturability
+Accessible to small-team fabrication using standard film-handling and tensioning techniques.
+
+Non-hazardous failure modes
+No brittle fracturing, splintering, or delamination that could generate orbital debris.
+
+8.2 Puff-Veil Material Requirements
+
+The PVA (Puff-Veil Assembly) material is the key performance driver of DragVale. It must satisfy the following Phase Zero criteria:
+
+8.2.1 Areal Density
+
+Target range: 0.1–1.0 g/m²
+
+Ultra-light to ensure:
+
+Negligible drag influence on host
+
+Rapid deorbit of veil fragments if damaged
+
+Low launch mass
+
+8.2.2 Mechanical Properties
+
+Must tolerate minor tears without propagating (anti-run characteristics).
+
+Must maintain tension without rigid supports.
+
+Must not deform plastically under nominal thermal loading.
+
+8.2.3 Thermal Endurance
+
+Operable range: –120°C to +120°C
+
+Expected to undergo several thousand thermal cycles over mission life.
+
+8.2.4 UV & Atomic Oxygen Resistance
+
+Material shall:
+
+Resist embrittlement under extreme UV exposure.
+
+Exhibit predictable, slow AO erosion without surface flaking.
+
+Candidate classes include:
+
+Polyimide films (AO-resistant coatings recommended)
+
+Nano-fiber mesh composites
+
+Aerogel-supported ultra-thin membranes
+
+Metallized polymer micro-films (with protective overcoats)
+
+Phase Zero does not mandate a single material; selection is left to implementing teams.
+
+8.3 PVA Frame and Edge Support Materials
+
+While the system avoids rigid booms, the veil may require:
+
+Elastic frame edges
+
+Tension filaments
+
+Memory-material perimeter elements
+
+Material expectations:
+
+Low-modulus, fatigue-resistant polymers or composite fibers
+
+No metallic hinges, deployment arms, or telescoping structures
+
+Memory materials must store limited strain energy to avoid dynamic release events
+
+Must survive launch vibrations without micro-cracking or creep
+
+These components must degrade slower than the veil material to avoid early structural collapse.
+
+8.4 Host Drone Material Requirements
+8.4.1 Structure
+
+HD structure may use standard CubeSat materials:
+
+Aluminum alloys (e.g., 6061, 7075)
+
+Composite panels (aluminum honeycomb, CFRP skins)
+
+Non-fragmenting polymers for brackets and restraints
+
+8.4.2 Environmental Endurance
+
+Structural and surface materials must withstand:
+
+Vibration loads during launch
+
+LEO thermal environment
+
+Atomic oxygen exposure
+
+UV radiation
+
+Micrometeoroid flux (low incidence)
+
+8.4.3 Thermal Considerations
+
+Coatings and surface finishes must prevent uncontrolled heat absorption.
+
+No reliance on active cooling loops in Phase Zero.
+
+Solar-panel adhesives and encapsulants must resist UV-induced delamination.
+
+8.5 Mission Lifetime Expectations
+8.5.1 Veil Operational Lifetime
+
+Nominal operational lifetime: 3–12 months
+
+PVA is expected to gradually degrade and lose structural integrity due to environmental stressors.
+
+Full-lifetime survivability is not required for mission success; statistical drag enhancement early in the mission provides principal value.
+
+8.5.2 Host Drone Lifetime
+
+Expected operational lifetime: 6–24 months, depending on orbit, power generation, and component aging.
+
+Extended host lifetime does not guarantee veil survivability.
+
+8.5.3 End-of-Life Decay
+
+Both veil and host will naturally deorbit following structural degradation and orbital decay.
+
+No intervention required.
+
+8.6 Survivability Against Impact Events
+8.6.1 Micrometeoroid and Debris Impacts
+
+PVA is designed to tolerate perforations without catastrophic tearing.
+
+Frame elements must prevent tear propagation.
+
+HD structure will follow standard CubeSat impact survivability expectations.
+
+8.6.2 Drag-Induced Stress Loads
+
+PVA experiences low dynamic pressure in LEO, but must tolerate:
+
+Fluctuating drag forces due to density variations
+
+Minor tension asymmetries
+
+HD must absorb torque disturbances via ADCS.
+
+8.7 Degradation and Failure Behavior
+
+The system must degrade in a controlled, predictable manner:
+
+Veil material thinning and tearing occurs gradually.
+
+Structural edges may lose tension without catastrophic snap.
+
+Entire assembly remains low-mass even after significant material loss.
+
+No component failure mode shall generate rigid, fast-moving fragments.
+
+The degradation pathway is part of the design philosophy—safe, natural decline rather than active disposal.
+
+8.8 Material Qualification Guidelines (Phase Zero)
+
+Phase Zero does not require exhaustive flight qualification, but materials should undergo:
+
+Thermal vacuum cycling
+
+UV exposure testing
+
+AO exposure approximation (plasma chamber recommended)
+
+Mechanical tension and tear propagation tests
+
+Deployment-repeatability testing (for frame elements)
+
+9. Performance Expectations
+
+This section defines the anticipated performance characteristics of the DragVale Phase Zero demonstrator. Values are expressed as qualitative expectations and relative behaviors, not mission-specific numerical guarantees. Numerical performance will depend on veil material, deployed area, orbital altitude, local atmospheric density, and debris encounter geometry.
+
+The Phase Zero objective is to establish performance envelopes and expected qualitative outcomes, enabling implementers to derive quantitative models appropriate for their material and orbit choices.
+
+9.1 Performance Philosophy
+
+DragVale’s performance hinges on one underlying goal:
+
+Increase debris drag meaningfully while limiting drag penalty on the host.
+
+This differential performance dictates the architecture:
+
+Ultra-light, high-area veil
+
+Low-mass host
+
+Passive interaction model
+
+Stationary drag-enhancement role
+
+The system is not optimized for hunting debris; it is optimized for being in the right place long enough to matter.
+
+9.2 Drag Amplification Effect
+
+The Puff-Veil Assembly (PVA) creates a localized region of enhanced drag due to its:
+
+High surface area
+
+Low mass
+
+Permeable or semi-permeable structure
+
+Long interaction path length relative to small debris cross-sections
+
+Expected behavior:
+
+Debris passing through or interacting with the veil experiences increased aerodynamic drag relative to the unmodified orbital environment. This drag enhancement is expected to:
+
+Reduce debris velocity in the along-track direction
+
+Lower debris perigee incrementally
+
+Accelerate natural orbital decay over repeated passes
+
+Drag amplification magnitude depends on veil area, material coefficient of drag, and orbital density but is expected to be non-trivial compared to background drag.
+
+9.3 Host vs. Debris Drag Differential
+
+The system is designed so the host drone and passing debris experience significantly different ballistic impacts:
+
+Host Drone:
+
+Very small cross-sectional area compared to veil
+
+Much higher mass-to-area ratio
+
+PVA contributes trivial aerodynamic load on the host
+
+Attitude control counters minor torque disturbances
+
+Expected Result:
+Negligible reduction in host orbital lifetime.
+
+Debris:
+
+Often irregularly shaped with moderate ballistic coefficients
+
+Passes directly through or across veil material
+
+Experiences enhanced drag forces that compound over multiple encounters
+
+Expected Result:
+Meaningful contribution to debris orbit decay over time.
+
+This differential is the core operational principle.
+
+9.4 Encounter Dynamics
+9.4.1 Interaction Probability
+
+The veil’s operational area increases the probability of debris intersection relative to the host alone. Over mission lifetime, debris encounters occur as a statistical process, influenced by:
+
+Orbital inclination alignment
+
+Debris density in the orbital shell
+
+Relative phasing and conjunction frequency
+
+Veil orientation relative to ram direction
+
+DragVale does not perform active targeting. All interactions are incidental.
+
+9.4.2 Interaction Mechanisms
+
+Debris experiences enhanced drag through:
+
+Direct veil impact (dominant mechanism)
+
+Partial penetration of veil region causing drag coupling
+
+Contact with tension fibers or mesh nodes
+
+Momentum transfer effects from veil deformation
+
+Even incomplete interactions yield measurable effects over sufficient mission duration.
+
+9.5 Host Orbital Behavior
+Expected Host Performance
+
+Stable orientation maintained by ADCS
+
+Minor torque loading from veil drag
+
+No requirement for propulsion or orbit maintenance
+
+Slow, predictable decay consistent with host ballistic coefficient
+
+The host orbit remains largely unchanged relative to a non-veil CubeSat.
+
+9.6 Veil Stability and Aerodynamic Behavior
+
+The veil is expected to:
+
+Trail consistently behind the host along velocity vector
+
+Maintain quasi-steady shape due to tension and atmospheric flow
+
+Exhibit low-frequency oscillations under density variations
+
+Self-damp oscillations due to material compliance
+
+Impose very small reaction torques on the host
+
+Veil stability is a key component of predictable drag behavior.
+
+9.7 Mission Effectiveness Envelope
+
+DragVale performance depends on orbital altitude:
+
+Lower LEO (350–450 km)
+
+Highest atmospheric density
+
+Most effective drag amplification
+
+Shorter operational life due to faster orbital decay
+
+Optimal for testing veil material behavior
+
+Mid-LEO (450–600 km)
+
+Balanced operational lifetime
+
+Strong drag amplification effects
+
+Suitable for long-duration missions
+
+Upper LEO (600–800+ km)
+
+Reduced atmospheric density
+
+Drag amplification still present but lower
+
+Longer host lifetime
+
+Suitable for multi-year veil behavior assessment
+
+Phase Zero recommends 400–700 km for meaningful performance demonstration.
+
+9.8 Survivability vs. Performance
+
+A veil that survives longer produces more cumulative drag interactions. Expected behavior:
+
+Gradual thinning or loss of tension reduces drag effectiveness
+
+Partial veil loss still provides residual drag amplification
+
+Host drone remains fully functional with degraded veil
+
+Mission is considered complete once veil loses stable geometry
+
+Survivability is mission-enabling but not mission-critical.
+
+9.9 Expected Mission Outcomes (Phase Zero)
+
+Implementers should expect:
+
+Successful veil deployment and stable orientation
+
+Sustained drag-enhancement behavior over months
+
+Measurable orbital decay acceleration on small debris populations
+
+Minimal host orbital lifetime penalty
+
+Predictable, safe material degradation
+
+No debris generation under nominal or degraded operation
+
+DragVale is a persistent drag node, not a single-event mechanism. Effectiveness grows with dwell time.
+
+10. Limitations & Open Engineering Questions
+
+This section identifies the known limitations of the DragVale Phase Zero architecture and the open questions that are outside the scope of the current concept definition. These items do not represent flaws; they are areas requiring further study, simulation, material testing, or subsystem refinement during Phase One or beyond.
+
+10.1 Architectural Limitations
+10.1.1 Passive-Only Interaction
+
+DragVale does not pursue or intercept debris.
+It relies entirely on incidental conjunctions within a fixed orbital shell.
+This inherently limits:
+
+Encounter frequency
+
+Debris size classes affected
+
+Predictability of mission yield
+
+10.1.2 No Maneuver Authority
+
+Without propulsion, the host cannot:
+
+Adjust altitude
+
+Change inclination
+
+Avoid drag-inhibiting density troughs
+
+Optimize for debris concentration regions
+
+Mission effectiveness depends on initial orbital placement.
+
+10.1.3 Veil Degradation
+
+The veil is expected to degrade over time due to:
+
+UV exposure
+
+Atomic oxygen erosion
+
+Micrometeoroid perforation
+
+Thermal cycling fatigue
+
+As degradation increases, drag amplification decreases.
+Mission lifetime is therefore bounded by veil survivability, not host endurance.
+
+10.1.4 Limited Mechanical Stiffness
+
+The veil has no rigid booms or support arms.
+This choice improves safety but limits:
+
+Precise geometric control
+
+High-fidelity drag shaping
+
+Aerodynamic predictability under extreme density variations
+
+10.1.5 Statistical Performance
+
+DragVale’s effectiveness is inherently statistical.
+Performance cannot be guaranteed for specific debris pieces; only population-level effects can be expected.
+
+10.2 Environmental Limitations
+10.2.1 Low-Density Upper LEO
+
+At altitudes above ~700–800 km, atmospheric density declines sharply.
+Drag amplification still occurs but produces smaller net effects.
+
+10.2.2 Solar Cycle Sensitivity
+
+Atmospheric density varies with solar flux.
+During low activity periods, drag effects diminish.
+During high activity periods, veil loads increase.
+
+10.2.3 Unpredictable Density Variation
+
+Short-timescale density fluctuations can influence:
+
+Veil tension
+
+Oscillation behavior
+
+ACS control load
+
+Veil deformation
+
+These variations complicate precise modeling.
+
+10.3 Operational Limitations
+10.3.1 No On-Orbit Maintenance
+
+The system cannot be repaired or adjusted once deployed.
+
+10.3.2 Telemetry Constraints
+
+Low-bandwidth downlink restricts:
+
+High-resolution structural monitoring
+
+Real-time oscillation tracking
+
+Detailed debris-interaction logging
+
+10.3.3 ACS Workload Boundaries
+
+While veil-induced torques are expected to be small, extreme density spikes or partial-tear asymmetries may:
+
+Increase ACS duty cycle
+
+Affect attitude stability
+
+Shorten host operational lifetime
+
+10.3.4 No Deorbit Control
+
+EOL is purely natural decay.
+This is acceptable for low-mass systems but limits mission timing control.
+
+10.4 Open Engineering Questions
+
+These items require Phase One study, material testing, or simulation.
+
+10.4.1 Optimal Veil Material
+
+Open questions include:
+
+Best trade-off between AO resistance and areal density
+
+Effect of micro-mesh vs. solid-film architectures
+
+Tear propagation dynamics under impact
+
+Manufacturing tolerances for ultra-thin veils
+
+10.4.2 Deployment Geometry
+
+Areas requiring refinement:
+
+Circular vs. fan-shaped vs. ribbon geometries
+
+Tension distribution patterns for stability
+
+Memory-material perimeter performance
+
+Deployment rate optimization to avoid host torque spikes
+
+10.4.3 Drag Modeling Validation
+
+Key unknowns:
+
+Effective drag coefficient of permeable veil surfaces
+
+Impact of oscillation modes on drag consistency
+
+Interaction between mesh porosity and atmospheric flow
+
+Drag coupling between veil and debris of varying sizes
+
+10.4.4 Multi-Veil Scaling
+
+Phase Zero only defines a single-veil system.
+Open questions for future phases:
+
+Spacing between multiple nodes
+
+Chain performance as a statistical drag “corridor”
+
+Interaction between sequential veils
+
+Optimal altitude for multi-node efficacy
+
+10.4.5 Structural Dynamics
+
+Need further analysis for:
+
+Veil flutter modes
+
+Coupled HD–PVA oscillations
+
+Long-term tension degradation
+
+Asymmetric tear impacts on ACS load
+
+10.4.6 Real Debris Population Impact
+
+Requires Phase One modeling:
+
+Probabilistic encounter rates
+
+Predicted decay acceleration across debris size bins
+
+Comparative benefit vs. baseline atmospheric drag
+
+Aggregate effect on specific orbital shells over multi-year deployment
+
+10.5 Summary of Limitations
+
+DragVale’s simplicity is its strength, but it comes with:
+
+Passive-only operation
+
+Statistical effectiveness
+
+Material-driven lifetime bounds
+
+Environmental sensitivity
+
+No maneuvering authority
+
+These limitations are acceptable for Phase Zero and serve to make the system buildable, not perfect. Engineering teams engaging in Phase One can refine, extend, or augment these aspects based on mission needs.
