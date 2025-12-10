@@ -1,5 +1,17 @@
 # DragVale – Phase Zero Orbital Debris Drag System
 
+Estimated Costs
+
+Development (Phase 1 → flight-ready):
+≈ $0.5M – $1.0M
+This includes subsystem engineering, veil development, CubeSat bus integration, prototyping, ground testing, regulatory filings, and program overhead.
+
+Production (per operational unit):
+≈ $130k – $280k
+This includes hardware, structure, avionics, veil assembly, and integration/testing.
+
+These ranges reflect small-team, low-complexity design assumptions consistent with Phase Zero philosophy. Major aerospace primes would cost an order of magnitude more, but this architecture is intentionally designed to be built by a lean team using commercial hardware.
+
 **Status:** Phase Zero concept framework  
 **Author:** Nathan Rudloff  
 **License:** See `LICENSE` (Kaizen Open License)
