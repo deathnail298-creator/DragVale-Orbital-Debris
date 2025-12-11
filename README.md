@@ -1,5 +1,7 @@
 # DragVale – Phase Zero Orbital Debris Drag System
 
+Possible NASA SBIR: This Phase Zero architecture could be applied to NASA SBIR topics related to orbital debris mitigation and passive drag-enhancement systems, particularly those focused on low-mass, non-propulsive deorbiting technologies.
+
 Estimated Costs
 
 Development (Phase 1 → flight-ready):
