@@ -1,0 +1,191 @@
+Phase 3 — Execution Checklist
+Purpose
+
+This checklist exists to prevent sloppy execution, uncontrolled drift, and silent disaster.
+If you cannot check these boxes honestly, you are not in disciplined execution — you are gambling.
+
+Every stage must be explicitly acknowledged as PASS / FAIL.
+
+1️⃣ Pre-Execution Confirmation
+
+Before ANY hands-on work begins, confirm:
+
+☐ Phase 0 purpose is still valid
+
+☐ Phase 1 framing and scope constraints are still accepted
+
+☐ Phase 2 risks, limits, and boundary conditions are understood and acknowledged
+
+☐ Phase 3 Execution License exists and is valid
+
+☐ Funding exists, not “promised”
+
+☐ Executive sponsor is identified and active
+
+☐ Lead Engineer / Architecture Owner is identified
+
+☐ Independent reviewer is identified
+
+☐ Kill conditions are understood
+
+☐ Rollback authority is defined
+
+If any of these are missing, execution stops. No improvisation.
+
+2️⃣ Alignment & Authority Lock
+
+Execution authority must be explicit. Confirm:
+
+☐ Who can approve changes is documented
+
+☐ Who cannot approve changes is documented
+
+☐ Change review process exists and is written
+
+☐ Concept Drift Control file has been read by the execution team
+
+☐ Everyone understands Phase 3 is execution, not redesign
+
+If roles are fuzzy, the program will fall apart. If authority is unclear, stop.
+
+3️⃣ Requirements Honesty Check
+
+Confirm the system being executed is the same system defined earlier:
+
+☐ Purpose hasn’t “subtly shifted”
+
+☐ Scope hasn’t “expanded just a little”
+
+☐ Constraints haven’t magically “relaxed”
+
+☐ Success isn’t being redefined midstream
+
+☐ Institutional expectations match reality
+
+If someone is already softening reality before hardware exists, that’s drift. Fix it or halt.
+
+4️⃣ Technical Readiness to Execute
+
+Before building or testing:
+
+☐ Minimum viable technical plan exists
+
+☐ Execution steps are sequential and coherent
+
+☐ Dependencies are realistic
+
+☐ Operational environment is honestly defined
+
+☐ Logistics exist, not fantasy
+
+☐ Failure detection plan exists
+
+☐ Rollback path is physically possible
+
+☐ Test success criteria exist
+
+☐ Test failure handling exists
+
+If the plan only works when everything goes perfectly, it is not a plan.
+
+5️⃣ Institutional Stability Check
+
+Execution does not happen in a vacuum. Confirm:
+
+☐ Organization actually wants this done
+
+☐ Political stability around the program exists
+
+☐ No silent expectation of magic outcomes
+
+☐ Leadership understands risk and supports it anyway
+
+☐ Program continuation does not depend on luck or heroic effort
+
+If institutional reality is rotten, execution is just an expensive performance art piece.
+
+6️⃣ Execution Discipline in Motion
+
+During execution:
+
+☐ Changes are documented, not whispered
+
+☐ Drift violations are caught and corrected
+
+☐ Failures are logged honestly
+
+☐ Nobody is allowed to “wing it”
+
+☐ Independent reviewer remains active
+
+☐ Transparency is enforced
+
+If engineering silence replaces engineering honesty — stop.
+
+7️⃣ Rolling Evaluation
+
+Execution is not linear; reality pushes back. Continue only if:
+
+☐ Value proposition still survives
+
+☐ Performance is within tolerances
+
+☐ Risks remain controllable
+
+☐ Execution is still aligned to architecture intent
+
+☐ No cliff-edge compromises have been normalized
+
+If survival depends on pretending everything is fine, that’s failure.
+
+8️⃣ Kill Conditions — Hard Stop Enforcement
+
+If any of these occur, execution halts. Not “discussed.” Halts.
+
+☐ Performance collapses below value threshold
+
+☐ Phase 2 “this would be fatal” risks actually happen
+
+☐ Core assumptions prove false
+
+☐ Execution now requires perfection
+
+☐ Institutional support collapses
+
+☐ Architecture would need to be rewritten to continue
+
+Continuing after this point is ego and self-harm.
+
+9️⃣ Success Conditions
+
+Execution is only “successful” if:
+
+☐ System behavior matches architectural intent
+
+☐ Performance aligns with honest expectations
+
+☐ Execution remained disciplined
+
+☐ Constraints and risks were respected
+
+☐ No silent compromises were buried
+
+☐ The result is something you can defend in public without lying
+
+If you built “something” but it isn’t what Phase 0–2 defined, that’s not success. That’s drift wearing a costume.
+
+10️⃣ Final Integrity Check
+
+Before declaring Phase 3 complete:
+
+☐ Engineers agree
+
+☐ Managers agree
+
+☐ Executives agree
+
+☐ Independent reviewer agrees
+
+☐ No one is quietly swallowing objections
+
+If approval requires politeness, politics, or fear — don’t sign off.
