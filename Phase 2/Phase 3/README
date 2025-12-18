@@ -1,0 +1,130 @@
+Phase 3 — README.md
+Phase 3 — Execution & Authorization
+
+Phase 3 is where hands start moving.
+This is where execution becomes legally possible — if, and only if, a Phase 3 Execution License has been purchased.
+
+Until that happens, this material is not permission to build, prototype, deploy, integrate, submit to contracts, or operationalize in any form. If you are not licensed, stop here.
+
+Purpose of Phase 3
+
+Phase 3 exists to:
+
+authorize execution
+
+prevent concept drift during execution
+
+tie work to the validated Phase 0 / Phase 1 / Phase 2 intent
+
+ensure nobody freelances the architecture into stupidity
+
+This is where you move from:
+
+“We understand it”
+to
+“We’re going to actually do it — for real.”
+
+Legal Status
+
+Phase 3 content is governed by the Execution License, not the Theory License.
+If you do not have execution rights, you do not get to touch hardware, software, or implementation.
+
+Phase 3 = Paid, Licensed Execution Zone.
+
+Execution License Grants
+
+Once a valid Phase 3 Execution License is obtained, the licensee is permitted to:
+
+build prototypes
+
+conduct lab testing
+
+conduct field testing
+
+integrate into programs
+
+submit to contracts
+
+operationally deploy in limited or full capacity
+
+Execution must remain consistent with the documented architecture. “Execute honestly or don’t execute at all.”
+
+What is NOT Allowed Without a License
+
+If you do NOT have a license, you cannot:
+
+build anything
+
+bench test
+
+field test
+
+integrate into systems
+
+deploy
+
+submit to NASA, DoD, SBIR, DARPA, ESA, JAXA, or any other government contract
+
+include in a research program
+
+perform “just testing”
+
+run internal pilots
+
+build student / academic prototypes
+
+“tinker to see if it works”
+
+If hands touch reality, it’s execution.
+Execution requires a license.
+
+Commercialization Definition
+
+These count as Commercialization / Execution and require a license:
+
+submitting in an RFP / proposal
+
+SBIR / government / defense submission
+
+academic grant proposals involving build or testing
+
+corporate internal development
+
+startup R&D
+
+integration into existing products
+
+prototyping with intent to use
+
+field demonstration
+
+use in funded or unfunded programs
+
+If it moves beyond thought, it’s execution.
+
+What Does NOT Count as Commercialization
+
+These do NOT require a license:
+
+reading
+
+academic discussion
+
+internal design debate
+
+analysis / critique
+
+simulation work (non-executable, no prototype fabrication, no field use)
+
+planning / feasibility reviews
+
+paper studies
+
+Thinking is free.
+Doing is licensed.
+
+No Warranty
+
+Execution is at your risk.
+No guarantees of correctness, performance, safety, or suitability.
+Reality will test you whether you respect it or not.
