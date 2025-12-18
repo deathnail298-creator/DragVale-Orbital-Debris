@@ -1,0 +1,290 @@
+Phase 3 — Governance & Reporting
+Purpose
+
+Phase 3 Governance exists to control execution, not decorate it.
+This document defines who owns what, who can change what, how truth is reported, and how failure is handled.
+
+If governance is vague, execution will rot.
+
+1️⃣ Governance Objectives
+
+Phase 3 governance must:
+
+enforce alignment to Phase 0–2
+
+prevent silent drift
+
+ensure accountability exists
+
+force honest reporting
+
+create defensible decision trails
+
+define when to continue and when to stop
+
+If these aren’t happening, governance has failed.
+
+2️⃣ Authority Structure
+
+Execution authority is explicit, not implied.
+
+Executive Sponsor
+
+Responsible for:
+
+program ownership
+
+funding continuity
+
+stop/go decisions when kill conditions trigger
+
+defending execution integrity
+
+May NOT:
+
+override constraints for politics
+
+authorize “just push through” when failure has occurred
+
+Lead Engineer / Architecture Owner
+
+Responsible for:
+
+technical correctness
+
+integrity of execution vs architectural intent
+
+detecting drift and flagging it
+
+recommending stop/go based on engineering reality
+
+May NOT:
+
+soften bad news
+
+redefine success midstream
+
+ignore risks called out in Phase 2
+
+Independent Reviewer
+
+Must be:
+
+external to direct program control
+
+not financially dependent on “success”
+
+empowered to say “no”
+
+Responsible for:
+
+brutal honesty
+
+checking alignment to original architecture
+
+confirming integrity of reporting
+
+certifying success or calling failure
+
+If Independent Review is a rubber stamp, governance is fake.
+
+3️⃣ Change Control
+
+No undocumented changes. Ever.
+
+Any change that affects:
+
+purpose
+
+architecture
+
+scope
+
+operating assumptions
+
+risk posture
+
+constraints
+
+performance expectations
+
+MUST:
+
+be documented
+
+be justified
+
+receive tri-party approval:
+
+Executive Sponsor
+
+Lead Engineer
+
+Independent Reviewer
+
+If it doesn’t go through this, it does not happen.
+
+4️⃣ Reporting Discipline
+
+Reporting exists to describe reality, not protect egos.
+
+Required Reports
+
+Weekly Engineering Status
+
+progress vs plan
+
+failures + lessons
+
+current risks
+
+drift alerts
+
+alignment statement (“still aligned / drift present”)
+
+Monthly Governance Review
+
+technical reality
+
+institutional stability
+
+cost vs expectation
+
+risk outlook
+
+license compliance confirmation
+
+Event-Based Reports
+Required immediately when:
+
+severe failure occurs
+
+drift is discovered
+
+kill criteria approached
+
+external pressure attempts to force bad decisions
+
+Silence is failure.
+
+5️⃣ Honesty Requirements
+
+Reports must be:
+
+complete
+
+blunt
+
+unfiltered
+
+engineering first, politics second
+
+No:
+
+optimistic smoothing
+
+“we think it’ll be fine” language
+
+burying inconvenient truths
+
+redefining words to avoid saying “failure”
+
+Lies destroy programs faster than physics.
+
+6️⃣ Transparency Rules
+
+Engineers must be allowed to speak truth upward
+
+Managers cannot suppress risk reporting
+
+Executives do not get to demand positive outcomes
+
+Independent Reviewer must have unfettered access
+
+If people are afraid to speak, the program is already dead.
+
+7️⃣ Governance Meetings
+
+Minimum cadence:
+
+Weekly Execution Sync
+
+engineers + manager
+
+keeps execution aligned
+
+Biweekly Risk & Drift Review
+
+engineering + independent reviewer
+
+confirm: drift, risk, boundary integrity
+
+Monthly Executive Governance Session
+
+all three authorities present
+
+stop/go validation
+
+strategic positioning
+
+documentation of decisions
+
+Missing governance meetings = missing governance.
+
+8️⃣ Kill Process
+
+Kill is not political. It is procedural.
+
+If kill conditions occur:
+
+Lead Engineer documents and triggers Kill Notice
+
+Independent Reviewer validates
+
+Executive Sponsor signs final Stop order
+
+Execution halts immediately. No “just push a little longer.”
+
+Stopping is discipline. Continuing after failure is negligence.
+
+9️⃣ Compliance with License
+
+Governance must ensure:
+
+execution stays within licensed rights
+
+no unauthorized builds
+
+no shadow testing
+
+no “just experimenting quietly”
+
+Violating the license is:
+
+legal risk
+
+integrity risk
+
+reputational risk
+
+Governance treats violations as program-threatening events.
+
+🔟 Final Governance Integrity Check
+
+Governance is only real if:
+
+☐ roles are enforced
+
+☐ reporting is honest
+
+☐ authority boundaries are respected
+
+☐ changes are controlled
+
+☐ transparency exists
+
+☐ drift gets corrected
+
+☐ kills happen when required
+
+If you need politics, fear, or spin to keep the program alive, it’s already failed.
