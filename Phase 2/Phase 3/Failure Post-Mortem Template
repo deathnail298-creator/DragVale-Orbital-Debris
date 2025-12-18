@@ -1,0 +1,249 @@
+Phase 3 — Failure Post-Mortem Template
+Purpose
+
+Failure is not shame. Failure is not scandal.
+Failure is data.
+
+This document exists to capture what actually happened, without spin, ego, or politics — so the organization learns instead of repeating the same mistake with a different paint job.
+
+If this document becomes marketing, the program learned nothing.
+
+1️⃣ Failure Summary (Blunt, No Spin)
+
+Was Phase 3 execution successful?
+☐ Yes
+☐ No (this document required)
+
+Plain-English Failure Statement
+
+One paragraph. No excuses. No “context.” No softening.
+Example style: “Execution failed because X didn’t work / Y collapsed / Z proved false.”
+
+2️⃣ Failure Classification
+
+Select all that apply:
+
+☐ Technical failure
+
+☐ Architecture / assumption failure
+
+☐ Constraint violation
+
+☐ Performance collapse
+
+☐ Institutional failure
+
+☐ Governance failure
+
+☐ Drift-induced failure
+
+☐ External dependency failure
+
+☐ Funding / program instability
+
+☐ Other (define):
+
+3️⃣ What Actually Happened
+
+Describe reality, not intent.
+
+Timeline of Failure
+
+What was attempted?
+
+What happened?
+
+When did the first warning appear?
+
+When did it become unrecoverable?
+
+4️⃣ Root Cause Analysis
+
+Root cause is not “stuff went wrong.”
+Root cause is the thing that, if fixed, would have prevented failure.
+
+Technical Root Causes
+
+Hardware?
+
+Physics?
+
+Materials?
+
+System behavior?
+
+Architectural Root Causes
+
+Wrong assumptions?
+
+Bad abstractions?
+
+Wrong mission framing?
+
+Overconfidence in cleverness?
+
+Organizational / Governance Root Causes
+
+Did someone ignore Phase 2?
+
+Was drift allowed?
+
+Were reports honest?
+
+Did leadership push stupidity?
+
+Was independence compromised?
+
+License / Discipline Root Causes
+
+Did anyone execute outside authorized scope?
+
+Did anyone cut reality corners?
+
+Do not pretend “it was complicated.” Complication is not a cause. It’s camouflage.
+
+5️⃣ Were Kill Conditions Triggered?
+
+Phase 3 defines conditions where execution must stop.
+
+Did kill conditions occur?
+☐ Yes
+☐ No
+
+If yes:
+
+When?
+
+Was the Stop enforced?
+
+If not enforced, explain why — bluntly.
+
+If no, explain why failure still occurred despite not technically hitting kill rules.
+
+6️⃣ Concept Drift Examination
+
+Was failure caused or amplified by drift?
+
+☐ No drift — system failed honestly
+
+☐ Drift present and corrected
+
+☐ Drift present and tolerated
+
+☐ Drift directly caused failure
+
+Explain:
+
+What drift looked like, who allowed it, and why.
+
+If drift existed and governance didn’t stop it, governance failed.
+
+7️⃣ Phase Alignment Autopsy
+
+Did execution stay true to earlier phases?
+
+Phase 0 Purpose honored?
+
+☐ Yes ☐ No
+
+Phase 1 scope discipline respected?
+
+☐ Yes ☐ No
+
+Phase 2 constraints and risks respected?
+
+☐ Yes ☐ No
+
+If No anywhere, explain how ignoring those contributed to failure.
+
+8️⃣ Integrity & Honesty Assessment
+
+Failure becomes disaster when people lie.
+
+Answer bluntly:
+
+Were engineers pressured to soften reality?
+
+Did managers hide risk?
+
+Did executives force optimism?
+
+Did independence collapse?
+
+Did anyone pretend “success” longer than reality justified?
+
+If yes, document. Names optional. Behavior mandatory.
+
+9️⃣ What Was Learned
+
+Lessons must be:
+
+actionable
+
+specific
+
+non-vague
+
+non-corporate
+
+Examples of bad lessons:
+
+“We need better communication.”
+
+“We should be more careful.”
+
+“We learned a lot.”
+
+Examples of acceptable lessons:
+
+“Assumption X is false in real environments.”
+
+“Architecture must include Y or it collapses.”
+
+“Institutional drift controls were insufficient.”
+
+“Never rely on Z as a stable dependency again.”
+
+List them:
+
+Lesson 1 —
+
+Lesson 2 —
+
+Lesson 3 —
+(add more as needed)
+
+🔟 Final Determination
+
+This failure is classified as:
+
+☐ Honest Execution Failure
+(we tried, reality disagreed; discipline held; governance worked)
+
+☐ Preventable Discipline Failure
+(failure occurred because someone abandoned Phase 0–3 discipline)
+
+☐ Institutional Sabotage / Leadership Failure
+(program was killed by politics, drift pressure, or forced optimism)
+
+Explain the classification.
+
+Certification of Post-Mortem Integrity
+
+This document confirms the failure analysis is honest, complete, and politically unfiltered.
+
+Required signatures:
+
+Executive Sponsor
+
+Lead Engineer / Architecture Owner
+
+Independent Reviewer
+
+If any refuse to sign, that refusal must be documented — with reason.
+
+Closing
+
+Failure spoken honestly protects future engineers, managers, budgets, and missions.
+
+Failure denied guarantees repetition.
